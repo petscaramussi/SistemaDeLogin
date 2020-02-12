@@ -4,4 +4,4 @@ define('USUARIO','root');
 define('SENHA','vertrigo');
 define('DB','login');
 
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die('não foi possível conectar ao banco');
+$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die('não foi posisvel conectar ao banco');

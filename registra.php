@@ -2,6 +2,7 @@
 session_start();
 include("conexao.php");
 
+//tratamento de erros
 if(empty($_POST['nome']) || empty($_POST['usuario']) || empty($_POST['senha']) || empty($_POST['rsenha'])){
     $_SESSION['branco'] = true;
     header("LOCATION: registro.php");
@@ -14,12 +15,13 @@ if(strlen($_POST['senha'])<6){
     exit; 
 }
 
-if($_POST['$_POST'] != $_POST['senha']){
+if($_POST['rsenha'] != $_POST['senha']){
     $_SESSION['senha_diferente'] = true;
     header("LOCATION: registro.php");
     exit;
 }
 
+//inserção no banco de dados
 $nome = mysqli_real_escape_string($conexao,trim($_POST['nome']));
 $usuario = mysqli_real_escape_string($conexao,trim($_POST['usuario']));
 $senha = mysqli_real_escape_string($conexao,trim(md5($_POST['senha'])));
